@@ -1,8 +1,9 @@
 # spectre-m2
 
-Clean research artifact for the surviving `prfm pldl1keep` transient-consumer
-signal observed on Apple M2 / macOS. The repository intentionally keeps only
-reviewer-facing demos that build and run from the top-level `Makefile`.
+Reproducible demos for Apple M2 transient-execution experiments around
+SLAP/LAP behavior and a narrower `prfm pldl1keep` transient-consumer signal.
+The repository focuses on the code paths that build from the top-level
+`Makefile` and on the limits of the observed cache-state disclosure.
 
 ## Claim
 
@@ -15,9 +16,9 @@ secret-dependent address and issue an L1 software prefetch, leaving a cache
 footprint after rollback.
 
 This is a cache-state disclosure primitive, not an arbitrary write primitive.
-The cleaned artifact also does not claim a universal read from unrelated
-processes. The strongest demos here are same-process and separately compiled
-victim-object demos that require a reachable victim-side prefetch gadget.
+The artifact does not claim a universal read from unrelated processes. The
+strongest demos here are same-process and separately compiled victim-object
+demos that require a reachable victim-side prefetch gadget.
 
 ## Repository Layout
 
@@ -40,9 +41,9 @@ scripts/
   run_separate_victim_fullbyte.sh    Fresh-process full-byte runner.
 ```
 
-Old exploratory branches, stale logs, missing Makefile targets, and numbered
-lab-note files were removed. The negative findings are summarized below instead
-of being kept as broken or confusing scripts.
+The repository layout is deliberately small: it includes working demos,
+calibration tools, and shell drivers. Negative findings are summarized below
+rather than preserved as non-working exploratory scripts.
 
 ## Requirements
 
